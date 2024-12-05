@@ -8,6 +8,8 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout  # 步骤名称：检出代码
+        uses: actions/checkout@v4  # 使用 GitHub 的 checkout 动作，版本为 v4
       - name: Deploy to Halo
         run: |
           npx halo-static-pages-deploy-cli deploy -e ${{ secrets.ENDPOINT }} -i ${{ secrets.ID }} -t ${{ secrets.PAT }} -f index.html
